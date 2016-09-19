@@ -1,0 +1,7 @@
+baseurl = "http://karteek.net"
+languageCode = "en-us"
+title = "Karteek dot Net"
+theme = "liquorice"
+
+[params]
+  author = "karteek"
