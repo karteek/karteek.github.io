@@ -21,7 +21,7 @@
 
                             {{ with $tags }}
                                 with tags
-                                {{ range $tags }}
+                                {{ range sort $tags }}
                                     <a href="{{ $baseurl }}/tags/{{ . | urlize }}">{{ . }}</a>
                                 {{ end }}
                             {{ end }}
