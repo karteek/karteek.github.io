@@ -1,5 +1,6 @@
 +++
 
+description = "Reinitializing karteek dot net"
 date = "2016-09-18T00:41:09-07:00"
 title = "re init"
 tags = ["hugo", "github"]
