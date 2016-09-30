@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Minikube on Karteek dot Net</title>
+    <link>http://karteek.net/tags/minikube/</link>
+    <description>Recent content in Minikube on Karteek dot Net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Sep 2016 00:58:27 -0700</lastBuildDate>
+    <atom:link href="http://karteek.net/tags/minikube/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Kubernetes with minikube</title>
+      <link>http://karteek.net/posts/minikube/</link>
+      <pubDate>Wed, 21 Sep 2016 00:58:27 -0700</pubDate>
+      
+      <guid>http://karteek.net/posts/minikube/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/kubernetes/minikube&#34;&gt;Minikube&lt;/a&gt; is the easiest way to get yourself a dev friendly kubernetes setup.
+You can get download it from &lt;a href=&#34;https://github.com/kubernetes/minikube/releases&#34;&gt;here&lt;/a&gt; and get yourself a kubernetes node
+by doing just &lt;code&gt;minikube start&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Of course, you need to have &lt;a href=&#34;https://www.virtualbox.org/wiki/Downloads&#34;&gt;Virtualbox&lt;/a&gt; installed on your host machine.&lt;/p&gt;
+
+&lt;p&gt;Once you get minikube binary, some immediate checks you can do&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  $ minikube start
+  Starting local Kubernetes cluster...
+  Kubectl is now configured to use the cluster.
+
+  $ minikube status
+  minikubeVM: Running
+  localkube: Running
+
+  $ minikube ip
+  192.168.99.104
+
+  $ minikube dashboard
+  Opening kubernetes dashboard in default browser...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However, it installs boot2docker based docker host on your Virtualbox. If you prefer CoreOS like me, you can install it by running
+&lt;code&gt;minikube start --iso-url=https://github.com/coreos/minikube-iso/releases/download/v0.0.4/minikube-v0.0.4.iso&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You can also ssh into your minikube VM by running &lt;code&gt;minikube ssh&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;minikube&lt;/code&gt; also lets you configure your docker environment easily so that you can connect to minikube&amp;rsquo;s docker daemon directly from your
+host machine.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  $ minikube docker-env
+  export DOCKER_TLS_VERIFY=&amp;quot;1&amp;quot;
+  export DOCKER_HOST=&amp;quot;tcp://192.168.99.104:2376&amp;quot;
+  export DOCKER_CERT_PATH=&amp;quot;/Users/karteek/.minikube/certs&amp;quot;
+  export DOCKER_API_VERSION=&amp;quot;1.23&amp;quot;
+  # Run this command to configure your shell:
+  # eval $(minikube docker-env)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And it configures &lt;code&gt;kubectl&lt;/code&gt; automatically for you. So, you can start playing around with your kubernetes node immediately with in matter of minutes.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  $ kubectl get nodes
+  NAME       STATUS    AGE
+  minikube   Ready     3d
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

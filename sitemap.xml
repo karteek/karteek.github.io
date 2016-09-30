@@ -7,6 +7,11 @@
   </url>
   
   <url>
+    <loc>http://karteek.net/posts/minikube/</loc>
+    <lastmod>2016-09-21T00:58:27-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://karteek.net/posts/k8s/</loc>
     <lastmod>2016-09-21T00:58:27-07:00</lastmod>
   </url>
