@@ -57,4 +57,10 @@ And it configures `kubectl` automatically for you. So, you can start playing aro
   $ kubectl get nodes
   NAME       STATUS    AGE
   minikube   Ready     3d
+
+  $ kubectl cluster-info
+  Kubernetes master is running at https://192.168.99.104:8443
+  kubernetes-dashboard is running at https://192.168.99.104:8443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard
+
+  To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
