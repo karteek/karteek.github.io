@@ -6,8 +6,73 @@
     <description>Recent content on Karteek dot Net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Sep 2016 01:54:58 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 04 Oct 2016 01:51:21 -0700</lastBuildDate>
     <atom:link href="http://karteek.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Kubernetes architecture</title>
+      <link>http://karteek.net/posts/kubernetes-architecture/</link>
+      <pubDate>Tue, 04 Oct 2016 01:51:21 -0700</pubDate>
+      
+      <guid>http://karteek.net/posts/kubernetes-architecture/</guid>
+      <description>
+
+&lt;p&gt;Kubernetes is fairly simple to install and configure. All you would need is
+few VMs with docker (or rkt) installed. Once you understand the needed components
+to get the system read, orchestrating them to sit at right place can be done in
+many ways.&lt;/p&gt;
+
+&lt;p&gt;As I mentioned in an &lt;a href=&#34;http://karteek.net/posts/k8s/&#34;&gt;old post&lt;/a&gt;, kubernetes has two
+roles that you would need to know to start with&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Master&lt;/li&gt;
+&lt;li&gt;Node (a.k.a Minion)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Before we get into each role, I would want to tell you about k8s components&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;API Server&lt;/strong&gt; is the component all nodes would talk to to update their state&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scheduler&lt;/strong&gt; is the component which schedules pods onto a node&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Controller manager&lt;/strong&gt; is technically what manages entire kubernetes cluster
+This is the component which manages nodes, replications controllers, deployments,
+endpoints etc of the k8s cluster. If you are running kubernetes on any cloud, I
+suggest you to always look for logs of your controller manager without failing&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;kubelet&lt;/strong&gt; is the component/agent that interacts directly with docker and manages
+all the pods, images, containers, volumes etc.,&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;kube-proxy&lt;/strong&gt; is the network proxy&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;etcd&lt;/strong&gt; is the persistent storage for your k8s cluster&amp;rsquo;s state&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;now-a-master&#34;&gt;Now, a master&lt;/h3&gt;
+
+&lt;p&gt;A kubernetes master, would typically run API Server, Scheduler, Controller Manager,
+and etcd. You can certainly put run them in a HA mode by running more than one
+copy of them. Etcd data will be the data, you would have to take backups
+(to take backup of k8s side of your cluster, you would need different strategy for
+your application data backup)&lt;/p&gt;
+
+&lt;p&gt;You typically would run etcd2 as a service outside of kubernetes. And start API Server,
+scheduler, controller manager on master nodes using kubelet. All of these components
+ship in a single binary called &lt;em&gt;hyperkube&lt;/em&gt;, and I use the &lt;a href=&#34;https://quay.io/repository/coreos/hyperkube?tab=tags&#34;&gt;one&lt;/a&gt;
+from CoreOS (all my nodes are CoreOS too)&lt;/p&gt;
+
+&lt;p&gt;You can also run kubelet as a binary directly without using container by downloading
+it from &lt;a href=&#34;https://storage.googleapis.com/kubernetes-release/release/v1.3.8/bin/linux/amd64/kubelet&#34;&gt;https://storage.googleapis.com/kubernetes-release/release/v1.3.8/bin/linux/amd64/kubelet&lt;/a&gt;.
+This is not the preferred way, and binaries from this location can go away anytime.&lt;/p&gt;
+
+&lt;h3 id=&#34;and-the-node&#34;&gt;And, the node&lt;/h3&gt;
+
+&lt;p&gt;On the k8s nodes (most likely more than one), you would run just kubelet and kube-proxy.
+Kubelet on worker node will register with the API server. Controller Manager will
+start to manage the node, scheduler will start scheduling pods onto the nodes, and
+kube-proxy will set up load balancing as needed (iptables is default way).&lt;/p&gt;
+
+&lt;p&gt;You can check out the architecture from design documents of kubernetes &lt;a href=&#34;https://github.com/kubernetes/kubernetes/blob/master/docs/design/architecture.md&#34;&gt;here&lt;/a&gt;.
+Just remember to checkout the latest version.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>About me</title>

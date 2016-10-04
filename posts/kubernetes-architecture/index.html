@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!-- π -->
+<html xmlns="//www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        <title>  Karteek dot Net - Kubernetes architecture  </title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+        <meta name="description" content="Kubernetes Architecture" />
+        <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
+        <link rel="stylesheet" href="http://karteek.net/libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="http://karteek.net/css/liquorice.css" />
+        <link rel="stylesheet" href="http://karteek.net/libraries/github-v2.min.css" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-144-precomposed.png" sizes="144x144" />
+        <link rel="alternate" href="" type="application/rss+xml" title="Karteek dot Net" />
+        <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    </head>
+    <body class="li-body">
+
+<header class="li-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-brand li-left">
+                <a href="http://karteek.net">Karteek dot Net</a></div>
+                <div class="li-menu li-right">
+                    <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
+                    <ul id="menu2" class="li-menu-items">
+                        
+                            <li><a href="/about/"> About me </a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen columns">
+                <ul id="menu" class="li-menu-items li-menu-mobile">
+                    
+                        <li><a href="/about/"> About me </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">Kubernetes architecture</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                                with tags
+                                
+                                    <a href="http://karteek.net/tags/kubernetes">kubernetes</a>
+                                
+                            
+                        </span>
+                         - 
+                        <time class="li-article-date">Tuesday, October 4, 2016</time>
+                    </header>
+                    <section>
+                        
+
+<p>Kubernetes is fairly simple to install and configure. All you would need is
+few VMs with docker (or rkt) installed. Once you understand the needed components
+to get the system read, orchestrating them to sit at right place can be done in
+many ways.</p>
+
+<p>As I mentioned in an <a href="http://karteek.net/posts/k8s/">old post</a>, kubernetes has two
+roles that you would need to know to start with</p>
+
+<ul>
+<li>Master</li>
+<li>Node (a.k.a Minion)</li>
+</ul>
+
+<p>Before we get into each role, I would want to tell you about k8s components</p>
+
+<ol>
+<li><strong>API Server</strong> is the component all nodes would talk to to update their state</li>
+<li><strong>Scheduler</strong> is the component which schedules pods onto a node</li>
+<li><strong>Controller manager</strong> is technically what manages entire kubernetes cluster
+This is the component which manages nodes, replications controllers, deployments,
+endpoints etc of the k8s cluster. If you are running kubernetes on any cloud, I
+suggest you to always look for logs of your controller manager without failing</li>
+<li><strong>kubelet</strong> is the component/agent that interacts directly with docker and manages
+all the pods, images, containers, volumes etc.,</li>
+<li><strong>kube-proxy</strong> is the network proxy</li>
+<li><strong>etcd</strong> is the persistent storage for your k8s cluster&rsquo;s state</li>
+</ol>
+
+<h3 id="now-a-master">Now, a master</h3>
+
+<p>A kubernetes master, would typically run API Server, Scheduler, Controller Manager,
+and etcd. You can certainly put run them in a HA mode by running more than one
+copy of them. Etcd data will be the data, you would have to take backups
+(to take backup of k8s side of your cluster, you would need different strategy for
+your application data backup)</p>
+
+<p>You typically would run etcd2 as a service outside of kubernetes. And start API Server,
+scheduler, controller manager on master nodes using kubelet. All of these components
+ship in a single binary called <em>hyperkube</em>, and I use the <a href="https://quay.io/repository/coreos/hyperkube?tab=tags">one</a>
+from CoreOS (all my nodes are CoreOS too)</p>
+
+<p>You can also run kubelet as a binary directly without using container by downloading
+it from <a href="https://storage.googleapis.com/kubernetes-release/release/v1.3.8/bin/linux/amd64/kubelet">https://storage.googleapis.com/kubernetes-release/release/v1.3.8/bin/linux/amd64/kubelet</a>.
+This is not the preferred way, and binaries from this location can go away anytime.</p>
+
+<h3 id="and-the-node">And, the node</h3>
+
+<p>On the k8s nodes (most likely more than one), you would run just kubelet and kube-proxy.
+Kubelet on worker node will register with the API server. Controller Manager will
+start to manage the node, scheduler will start scheduling pods onto the nodes, and
+kube-proxy will set up load balancing as needed (iptables is default way).</p>
+
+<p>You can check out the architecture from design documents of kubernetes <a href="https://github.com/kubernetes/kubernetes/blob/master/docs/design/architecture.md">here</a>.
+Just remember to checkout the latest version.</p>
+
+                    </section>
+                </article>
+            </div>
+        </div>
+
+        <div class="row li-author">
+    <div class="sixteen columns">
+        Written by <strong>karteek</strong>
+    </div>
+</div>
+
+
+        <div class="row">
+          <div class="sixteen columns">
+            <br />
+            <div id="disqus_thread"></div>
+<script>
+(function() {
+    if (window.location.hostname == "localhost")
+      return;
+    var d = document, s = d.createElement('script');
+    s.src = '//karteek-net.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+          </div>
+        </div>
+
+        <div class="row li-pagination">
+            <div class="eight columns">
+                <div class="li-pagination-previous">
+                    
+                        &nbsp;
+                    
+                </div>
+            </div>
+            <div class="eight columns">
+                <div class="li-pagination-next">
+                    
+                        Older article<br />
+                        <a href="http://karteek.net/about/"> About me</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer class="li-page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-page-footer-legal">
+                    &copy; 2016. All rights reserved. 
+                </div>
+                <div class="li-page-footer-theme">
+                    <span class=""><a href="https://github.com/eliasson/liquorice/">liquorice</a> is a theme for <a href="http://hugo.spf13.com">hugo</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript">
+var sc_project=8962432;
+var sc_invisible=1;
+var sc_security="99785db3";
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="site stats"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="//c.statcounter.com/8962432/0/99785db3/1/" alt="site
+stats"></a></div></noscript>
+</body>
+</html>
