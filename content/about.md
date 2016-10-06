@@ -1,7 +1,7 @@
 +++
 Categories = []
-Description = ""
-date = "2016-09-30T01:54:58-07:00"
+Description = "Karteek Edamadaka is a technology enthusiast working in a bay area based networking company wearing multiple hats of architecture, development and delivery"
+date = "2016-09-01T01:54:58-07:00"
 title = "About me"
 type = "page"
 +++
