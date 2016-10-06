@@ -12,11 +12,6 @@
   </url>
   
   <url>
-    <loc>http://karteek.net/about/</loc>
-    <lastmod>2016-09-30T01:54:58-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://karteek.net/posts/minikube/</loc>
     <lastmod>2016-09-21T00:58:27-07:00</lastmod>
   </url>
@@ -29,6 +24,11 @@
   <url>
     <loc>http://karteek.net/posts/re-init/</loc>
     <lastmod>2016-09-18T00:41:09-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://karteek.net/about/</loc>
+    <lastmod>2016-09-01T01:54:58-07:00</lastmod>
   </url>
   
 </urlset>
