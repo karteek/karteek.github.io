@@ -14,4 +14,4 @@ my learnings end up mostly being about technology. And much less about exciting 
 
 I solve problems [professionally](https://www.linkedin.com/in/karteek) and for [fun](https://github.com/karteek).
 I enjoy programming challenges from [ProjectEuler](https://projecteuler.net) and more recently from [HackerRank](http://hackerrank.com/).
-I spending time reading about new things at [HN](https://news.ycombinator.com/) and when taking [pictures](https://www.instagram.com/karteek.e/) when I get to travel. As usual, you can find me at [@karteek](https://twitter.com/karteek).
+I spending time reading about new things at [HN](https://news.ycombinator.com/) and taking [pictures](https://www.instagram.com/karteek.e/) when I get to travel. You can find me at [@karteek](https://twitter.com/karteek) or mail me [at] my domain name.
