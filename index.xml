@@ -6,8 +6,35 @@
     <description>Recent content on Karteek dot Net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Oct 2016 01:51:21 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 09 Oct 2016 01:20:22 -0700</lastBuildDate>
     <atom:link href="http://karteek.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>wdns</title>
+      <link>http://karteek.net/posts/wdns/</link>
+      <pubDate>Sun, 09 Oct 2016 01:20:22 -0700</pubDate>
+      
+      <guid>http://karteek.net/posts/wdns/</guid>
+      <description>&lt;p&gt;This is fun project for the weekend; a simple DNS relay server that can
+do wildcard DNS resolution  for IP Addresses. Like xip.io, but with a small change.
+This supports hyphens in addition to dots.&lt;/p&gt;
+
+&lt;p&gt;Examples&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  192-168-1-1.int.example.com resolves to 192.168.1.1
+  192.168.1.1.int.example.com to resolves 192.168.1.1
+  foo.10-1-2-3.int.example.com to resolves 10.1.2.3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There are quite a few services which do this like xip.io, I just wanted something
+that one can use for other domains. It&amp;rsquo;s fairly simple to use. Just deploy and
+delegate this as nameserver for the subdomain you are running this for, and it
+will serve only those requests. It can also relay requests for requests about
+other domains, so you can use it in your LAN too.&lt;/p&gt;
+
+&lt;p&gt;Code is available at &lt;a href=&#34;https://github.com/karteek/wdns&#34;&gt;github.com/karteek/wdns&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Kubernetes architecture</title>
