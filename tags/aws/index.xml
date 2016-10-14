@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Aws on Karteek dot Net</title>
-    <link>http://karteek.net/tags/aws/</link>
-    <description>Recent content in Aws on Karteek dot Net</description>
+    <title>Karteek dot Net</title>
+    <link>http://karteek.net/tags/aws/index.xml</link>
+    <description>Recent content on Karteek dot Net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Sep 2016 00:58:27 -0700</lastBuildDate>
     <atom:link href="http://karteek.net/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -15,9 +14,9 @@
       <pubDate>Wed, 21 Sep 2016 00:58:27 -0700</pubDate>
       
       <guid>http://karteek.net/posts/k8s/</guid>
-      <description>
+      <description>&lt;p&gt;Been long time that I wrote anything remotely useful for others. Thought to change that by writing about a tool that I have been using a lot lately - &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt;, an awesome container orchestration tool&lt;/p&gt;
 
-&lt;p&gt;Been long time that I wrote anything remotely useful for others. Thought to change that by writing about a tool that I have been using a lot lately - &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt;, an awesome container orchestration tool&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;I have been using kubernetes for work from past few months on AWS, I&amp;rsquo;ve learnt few things about kubernetes the hardway.
 One of the most common complaints I keep reading about kubernetes is that documentation is bad. I would agree to that half-heartedly as
@@ -106,8 +105,7 @@ as if it&amp;rsquo;s code - &lt;a href=&#34;https://www.terraform.io/&#34;&gt;Te
 &lt;p&gt;Even though, I managed to meet my requirements fairly easily, thanks to the vast kubernetes community, and articles/tools they wrote.
 Kubernetes can look daunting when you see their documentation, but its easy to setup and lovely to use once you understand components of it.&lt;/p&gt;
 
-&lt;p&gt;You should certainly read this &lt;a href=&#34;https://github.com/kelseyhightower/kubernetes-the-hard-way&#34;&gt;super useful tutorial&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/kelseyhightower&#34;&gt;@kelseyhightower&lt;/a&gt;., and go through these HN threads - &lt;a href=&#34;https://news.ycombinator.com/item?id=12022215&#34;&gt;1&lt;/a&gt;, &lt;a href=&#34;https://news.ycombinator.com/item?id=12323187&#34;&gt;2&lt;/a&gt; related to kubernetes.&lt;/p&gt;
-</description>
+&lt;p&gt;You should certainly read this &lt;a href=&#34;https://github.com/kelseyhightower/kubernetes-the-hard-way&#34;&gt;super useful tutorial&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/kelseyhightower&#34;&gt;@kelseyhightower&lt;/a&gt;., and go through these HN threads - &lt;a href=&#34;https://news.ycombinator.com/item?id=12022215&#34;&gt;1&lt;/a&gt;, &lt;a href=&#34;https://news.ycombinator.com/item?id=12323187&#34;&gt;2&lt;/a&gt; related to kubernetes.&lt;/p&gt;</description>
     </item>
     
   </channel>

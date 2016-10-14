@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kubernetes on Karteek dot Net</title>
-    <link>http://karteek.net/tags/kubernetes/</link>
-    <description>Recent content in Kubernetes on Karteek dot Net</description>
+    <title>Karteek dot Net</title>
+    <link>http://karteek.net/tags/kubernetes/index.xml</link>
+    <description>Recent content on Karteek dot Net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Oct 2016 01:51:21 -0700</lastBuildDate>
     <atom:link href="http://karteek.net/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -15,12 +14,12 @@
       <pubDate>Tue, 04 Oct 2016 01:51:21 -0700</pubDate>
       
       <guid>http://karteek.net/posts/kubernetes-architecture/</guid>
-      <description>
-
-&lt;p&gt;Kubernetes is fairly simple to install and configure. All you would need is
+      <description>&lt;p&gt;Kubernetes is fairly simple to install and configure. All you would need is
 few VMs with docker (or rkt) installed. Once you understand the needed components
 to get the system read, orchestrating them to sit at right place can be done in
 many ways.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;As I mentioned in an &lt;a href=&#34;http://karteek.net/posts/k8s/&#34;&gt;old post&lt;/a&gt;, kubernetes has two
 roles that you would need to know to start with&lt;/p&gt;
@@ -70,8 +69,7 @@ start to manage the node, scheduler will start scheduling pods onto the nodes, a
 kube-proxy will set up load balancing as needed (iptables is default way).&lt;/p&gt;
 
 &lt;p&gt;You can check out the architecture from design documents of kubernetes &lt;a href=&#34;https://github.com/kubernetes/kubernetes/blob/master/docs/design/architecture.md&#34;&gt;here&lt;/a&gt;.
-Just remember to checkout the latest version.&lt;/p&gt;
-</description>
+Just remember to checkout the latest version.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -83,6 +81,8 @@ Just remember to checkout the latest version.&lt;/p&gt;
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/kubernetes/minikube&#34;&gt;Minikube&lt;/a&gt; is the easiest way to get yourself a dev friendly kubernetes setup.
 You can get download it from &lt;a href=&#34;https://github.com/kubernetes/minikube/releases&#34;&gt;here&lt;/a&gt; and get yourself a kubernetes node
 by doing just &lt;code&gt;minikube start&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;Of course, you need to have &lt;a href=&#34;https://www.virtualbox.org/wiki/Downloads&#34;&gt;Virtualbox&lt;/a&gt; installed on your host machine.&lt;/p&gt;
 
@@ -131,8 +131,7 @@ host machine.&lt;/p&gt;
   kubernetes-dashboard is running at https://192.168.99.104:8443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard
 
   To further debug and diagnose cluster problems, use &#39;kubectl cluster-info dump&#39;.
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -141,9 +140,9 @@ host machine.&lt;/p&gt;
       <pubDate>Wed, 21 Sep 2016 00:58:27 -0700</pubDate>
       
       <guid>http://karteek.net/posts/k8s/</guid>
-      <description>
+      <description>&lt;p&gt;Been long time that I wrote anything remotely useful for others. Thought to change that by writing about a tool that I have been using a lot lately - &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt;, an awesome container orchestration tool&lt;/p&gt;
 
-&lt;p&gt;Been long time that I wrote anything remotely useful for others. Thought to change that by writing about a tool that I have been using a lot lately - &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt;, an awesome container orchestration tool&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;I have been using kubernetes for work from past few months on AWS, I&amp;rsquo;ve learnt few things about kubernetes the hardway.
 One of the most common complaints I keep reading about kubernetes is that documentation is bad. I would agree to that half-heartedly as
@@ -232,8 +231,7 @@ as if it&amp;rsquo;s code - &lt;a href=&#34;https://www.terraform.io/&#34;&gt;Te
 &lt;p&gt;Even though, I managed to meet my requirements fairly easily, thanks to the vast kubernetes community, and articles/tools they wrote.
 Kubernetes can look daunting when you see their documentation, but its easy to setup and lovely to use once you understand components of it.&lt;/p&gt;
 
-&lt;p&gt;You should certainly read this &lt;a href=&#34;https://github.com/kelseyhightower/kubernetes-the-hard-way&#34;&gt;super useful tutorial&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/kelseyhightower&#34;&gt;@kelseyhightower&lt;/a&gt;., and go through these HN threads - &lt;a href=&#34;https://news.ycombinator.com/item?id=12022215&#34;&gt;1&lt;/a&gt;, &lt;a href=&#34;https://news.ycombinator.com/item?id=12323187&#34;&gt;2&lt;/a&gt; related to kubernetes.&lt;/p&gt;
-</description>
+&lt;p&gt;You should certainly read this &lt;a href=&#34;https://github.com/kelseyhightower/kubernetes-the-hard-way&#34;&gt;super useful tutorial&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/kelseyhightower&#34;&gt;@kelseyhightower&lt;/a&gt;., and go through these HN threads - &lt;a href=&#34;https://news.ycombinator.com/item?id=12022215&#34;&gt;1&lt;/a&gt;, &lt;a href=&#34;https://news.ycombinator.com/item?id=12323187&#34;&gt;2&lt;/a&gt; related to kubernetes.&lt;/p&gt;</description>
     </item>
     
   </channel>

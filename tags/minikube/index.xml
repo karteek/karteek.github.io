@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Minikube on Karteek dot Net</title>
-    <link>http://karteek.net/tags/minikube/</link>
-    <description>Recent content in Minikube on Karteek dot Net</description>
+    <title>Karteek dot Net</title>
+    <link>http://karteek.net/tags/minikube/index.xml</link>
+    <description>Recent content on Karteek dot Net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Sep 2016 00:58:27 -0700</lastBuildDate>
     <atom:link href="http://karteek.net/tags/minikube/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -18,6 +17,8 @@
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/kubernetes/minikube&#34;&gt;Minikube&lt;/a&gt; is the easiest way to get yourself a dev friendly kubernetes setup.
 You can get download it from &lt;a href=&#34;https://github.com/kubernetes/minikube/releases&#34;&gt;here&lt;/a&gt; and get yourself a kubernetes node
 by doing just &lt;code&gt;minikube start&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;Of course, you need to have &lt;a href=&#34;https://www.virtualbox.org/wiki/Downloads&#34;&gt;Virtualbox&lt;/a&gt; installed on your host machine.&lt;/p&gt;
 
@@ -66,8 +67,7 @@ host machine.&lt;/p&gt;
   kubernetes-dashboard is running at https://192.168.99.104:8443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard
 
   To further debug and diagnose cluster problems, use &#39;kubectl cluster-info dump&#39;.
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Github on Karteek dot Net</title>
-    <link>http://karteek.net/tags/github/</link>
-    <description>Recent content in Github on Karteek dot Net</description>
+    <title>Karteek dot Net</title>
+    <link>http://karteek.net/tags/github/index.xml</link>
+    <description>Recent content on Karteek dot Net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Sep 2016 00:41:09 -0700</lastBuildDate>
     <atom:link href="http://karteek.net/tags/github/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -18,12 +17,13 @@
       <description>&lt;p&gt;It has been a long time I wrote anything or tried something new here. My domain started to look like an abandoned city.
 So, I&amp;rsquo;m re-initing it now with something much simpler combination of &lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo&lt;/a&gt; and Github &lt;a href=&#34;https://pages.github.com/&#34;&gt;pages&lt;/a&gt;.&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;Hugo is a ridiculously fast static site generator, and Github pages is a very easy way of hosting those pages.&lt;/p&gt;
 
 &lt;p&gt;This static site will be replacing my &lt;code&gt;golang&lt;/code&gt; based homepage that fetched and rendered articles from my tumblr based blog. As this site is going to be a simple set of static pages, there is no need of &lt;code&gt;heroku&lt;/code&gt; now. Back to basics.&lt;/p&gt;
 
-&lt;p&gt;Simplicity.&lt;/p&gt;
-</description>
+&lt;p&gt;Simplicity.&lt;/p&gt;</description>
     </item>
     
   </channel>
