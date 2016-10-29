@@ -2,10 +2,10 @@
 <!-- π -->
 <html xmlns="//www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
     <head>
-        <title>  Karteek dot Net - wdns  </title>
+        <title>  Karteek dot Net - A simple echo service  </title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-        <meta name="description" content="wildcard DNS for any IP address" />
+        <meta name="description" content="A simple container with an golang based echo server that prints headers" />
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,300,600" type='text/css'>
         <link rel="stylesheet" href="http://karteek.net/libraries/normalize.3.0.1.css" />
         <link rel="stylesheet" href="http://karteek.net/css/liquorice.css" />
@@ -55,43 +55,45 @@
             <div class="sixteen columns">
                 <article class="li-article">
                     <header class="li-article-header">
-                        <h1 class="li-article-title">wdns</h1>
+                        <h1 class="li-article-title">A simple echo service</h1>
                         <span class="li-article-taxonomies">
                             
 
                             
                                 with tags
                                 
-                                    <a href="http://karteek.net/tags/golang">golang</a>
+                                    <a href="http://karteek.net/tags/container">container</a>
                                 
-                                    <a href="http://karteek.net/tags/wdns">wdns</a>
+                                    <a href="http://karteek.net/tags/echo">echo</a>
                                 
                             
                         </span>
                          - 
-                        <time class="li-article-date">Sunday, October 9, 2016</time>
+                        <time class="li-article-date">Saturday, October 29, 2016</time>
                     </header>
                     <section>
-                        <p>This is fun project for the weekend; a simple DNS relay server that can
-do wildcard DNS resolution  for IP Addresses. Like xip.io, but with a small change.
-This supports hyphens in addition to dots.</p>
+                        <p>For some testing, I needed a simple HTTP server which would print headers that my client is
+sending (and some headers added by my proxy). I had written a simple HTTP server in python which did exactly what
+I wanted, and added it to python container from dockerhub.</p>
 
 <p></p>
 
-<p>Examples</p>
+<p>It was ridiculously large at ~260MB. Even the slim variants of python containers were ~75MB.</p>
 
-<pre><code>  192-168-1-1.int.example.com resolves to 192.168.1.1
-  192.168.1.1.int.example.com to resolves 192.168.1.1
-  foo.10-1-2-3.int.example.com to resolves 10.1.2.3
-</code></pre>
+<p>So, thought to write the same in Go (for fun, and result of single static binary), and just add it to busybox container.
+Result was a tiny ~5MB container as busybox base itself is tiny (&lt;1MB) set of tools, and nothing else. One can even use
+<a href="https://docs.docker.com/engine/userguide/eng-image/baseimages/#/creating-a-simple-base-image-using-scratch">scratch</a>
+instead of busybox as basecontainer when the binary is not dependent on anything like this go binary.</p>
 
-<p>There are quite a few services which do this like xip.io, I just wanted something
-that one can use for other domains. It&rsquo;s fairly simple to use. Just deploy and
-delegate this as nameserver for the subdomain you are running this for, and it
-will serve only those requests. It can also relay requests for requests about
-other domains, so you can use it in your LAN too.</p>
+<p>Here is the <a href="https://gist.github.com/karteek/c766536200f368bd884d776d8431c6c6">code</a> I wrote for this which is self
+explanatory.</p>
 
-<p>Code is available at <a href="https://github.com/karteek/wdns">github.com/karteek/wdns</a></p>
+<script src="https://gist.github.com/c766536200f368bd884d776d8431c6c6.js"></script>
+
+
+<p>Lesson I learned from this experience is that its good to use busybox as base for adding <code>go</code> based utils.
+<a href="https://github.com/kubernetes/kops/search?utf8=%E2%9C%93&amp;q=BASEIMAGE">Others</a> seem to be doing same for the simpler
+utilities.</p>
                     </section>
                 </article>
             </div>
@@ -127,8 +129,7 @@ other domains, so you can use it in your LAN too.</p>
             <div class="eight columns">
                 <div class="li-pagination-previous">
                     
-                        Later article<br />
-                        <a href="http://karteek.net/posts/simple-echo-server/"> A simple echo service</a>
+                        &nbsp;
                     
                 </div>
             </div>
@@ -136,7 +137,7 @@ other domains, so you can use it in your LAN too.</p>
                 <div class="li-pagination-next">
                     
                         Older article<br />
-                        <a href="http://karteek.net/posts/kubernetes-architecture/"> Kubernetes architecture</a>
+                        <a href="http://karteek.net/posts/wdns/"> wdns</a>
                     
                 </div>
             </div>
