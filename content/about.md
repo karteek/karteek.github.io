@@ -6,11 +6,10 @@ title = "About me"
 type = "page"
 +++
 
-Curious person, aren't you? It's good to be curious, and welcome to my curious world.
-
-I'm Karteek. I'm a curious person just like you. I would love to call myself a philomath (a seeker of knowledge and facts).
-And, this is the place where I'm trying to document my journey of my learnings. As I'm a techie working for a technology company,
-my learnings end up mostly being about technology. And much less about exciting adventures.
+I'm Karteek. I would love to call myself a technology enthusiast and a philomath (a seeker of knowledge and facts).
+And, this is the place where I'm trying to document my journey of my learnings. As I'm a techie working
+for a technology company, my learnings end up mostly being about technology. And much less about
+exciting adventures.
 
 I solve problems [professionally](https://www.linkedin.com/in/karteek) and for [fun](https://github.com/karteek).
 I enjoy programming challenges from [ProjectEuler](https://projecteuler.net) and more recently from [HackerRank](http://hackerrank.com/).
