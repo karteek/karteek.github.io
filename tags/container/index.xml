@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Karteek dot Net</title>
-    <link>http://karteek.net/tags/container/index.xml</link>
-    <description>Recent content on Karteek dot Net</description>
+    <title>Container on Karteek dot Net</title>
+    <link>http://karteek.net/tags/container/</link>
+    <description>Recent content in Container on Karteek dot Net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://karteek.net/tags/container/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Oct 2016 02:31:59 -0700</lastBuildDate>
+    
+	<atom:link href="http://karteek.net/tags/container/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>A simple echo service</title>
@@ -18,24 +21,7 @@
 sending (and some headers added by my proxy). I had written a simple HTTP server in python which did exactly what
 I wanted, and added it to python container from dockerhub.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;It was ridiculously large at ~260MB. Even the slim variants of python containers were ~75MB.&lt;/p&gt;
-
-&lt;p&gt;So, thought to write the same in Go (for fun, and result of single static binary), and just add it to busybox container.
-Result was a tiny ~5MB container as busybox base itself is tiny (&amp;lt;1MB) set of tools, and nothing else. One can even use
-&lt;a href=&#34;https://docs.docker.com/engine/userguide/eng-image/baseimages/#/creating-a-simple-base-image-using-scratch&#34;&gt;scratch&lt;/a&gt;
-instead of busybox as basecontainer when the binary is not dependent on anything like this go binary.&lt;/p&gt;
-
-&lt;p&gt;Here is the &lt;a href=&#34;https://gist.github.com/karteek/c766536200f368bd884d776d8431c6c6&#34;&gt;code&lt;/a&gt; I wrote for this which is self
-explanatory.&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/c766536200f368bd884d776d8431c6c6.js&#34;&gt;&lt;/script&gt;
-
-
-&lt;p&gt;Lesson I learned from this experience is that its good to use busybox as base for adding &lt;code&gt;go&lt;/code&gt; based utils.
-&lt;a href=&#34;https://github.com/kubernetes/kops/search?utf8=%E2%9C%93&amp;amp;q=BASEIMAGE&#34;&gt;Others&lt;/a&gt; seem to be doing same for the simpler
-utilities.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

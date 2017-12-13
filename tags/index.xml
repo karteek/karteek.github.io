@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Karteek dot Net</title>
+    <link>http://karteek.net/tags/</link>
+    <description>Recent content in Tags on Karteek dot Net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Sep 2016 00:58:27 -0700</lastBuildDate>
+    
+	<atom:link href="http://karteek.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Aws</title>
+      <link>http://karteek.net/tags/aws/</link>
+      <pubDate>Wed, 21 Sep 2016 00:58:27 -0700</pubDate>
+      
+      <guid>http://karteek.net/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Container</title>
+      <link>http://karteek.net/tags/container/</link>
+      <pubDate>Sat, 29 Oct 2016 02:31:59 -0700</pubDate>
+      
+      <guid>http://karteek.net/tags/container/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Echo</title>
+      <link>http://karteek.net/tags/echo/</link>
+      <pubDate>Sat, 29 Oct 2016 02:31:59 -0700</pubDate>
+      
+      <guid>http://karteek.net/tags/echo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>http://karteek.net/tags/github/</link>
+      <pubDate>Sun, 18 Sep 2016 00:41:09 -0700</pubDate>
+      
+      <guid>http://karteek.net/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>http://karteek.net/tags/golang/</link>
+      <pubDate>Sun, 09 Oct 2016 01:20:22 -0700</pubDate>
+      
+      <guid>http://karteek.net/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>http://karteek.net/tags/hugo/</link>
+      <pubDate>Sun, 18 Sep 2016 00:41:09 -0700</pubDate>
+      
+      <guid>http://karteek.net/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>http://karteek.net/tags/kubernetes/</link>
+      <pubDate>Tue, 04 Oct 2016 01:51:21 -0700</pubDate>
+      
+      <guid>http://karteek.net/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Minikube</title>
+      <link>http://karteek.net/tags/minikube/</link>
+      <pubDate>Wed, 21 Sep 2016 00:58:27 -0700</pubDate>
+      
+      <guid>http://karteek.net/tags/minikube/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wdns</title>
+      <link>http://karteek.net/tags/wdns/</link>
+      <pubDate>Sun, 09 Oct 2016 01:20:22 -0700</pubDate>
+      
+      <guid>http://karteek.net/tags/wdns/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

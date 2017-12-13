@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Karteek dot Net</title>
-    <link>http://karteek.net/tags/kubernetes/index.xml</link>
-    <description>Recent content on Karteek dot Net</description>
+    <title>Kubernetes on Karteek dot Net</title>
+    <link>http://karteek.net/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on Karteek dot Net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://karteek.net/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Oct 2016 01:51:21 -0700</lastBuildDate>
+    
+	<atom:link href="http://karteek.net/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Kubernetes architecture</title>
@@ -19,57 +22,7 @@ few VMs with docker (or rkt) installed. Once you understand the needed component
 to get the system read, orchestrating them to sit at right place can be done in
 many ways.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;As I mentioned in an &lt;a href=&#34;http://karteek.net/posts/k8s/&#34;&gt;old post&lt;/a&gt;, kubernetes has two
-roles that you would need to know to start with&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Master&lt;/li&gt;
-&lt;li&gt;Node (a.k.a Minion)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Before we get into each role, I would want to tell you about k8s components&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;API Server&lt;/strong&gt; is the component all nodes would talk to to update their state&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Scheduler&lt;/strong&gt; is the component which schedules pods onto a node&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Controller manager&lt;/strong&gt; is technically what manages entire kubernetes cluster
-This is the component which manages nodes, replications controllers, deployments,
-endpoints etc of the k8s cluster. If you are running kubernetes on any cloud, I
-suggest you to always look for logs of your controller manager without failing&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;kubelet&lt;/strong&gt; is the component/agent that interacts directly with docker and manages
-all the pods, images, containers, volumes etc.,&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;kube-proxy&lt;/strong&gt; is the network proxy&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;etcd&lt;/strong&gt; is the persistent storage for your k8s cluster&amp;rsquo;s state&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;now-a-master&#34;&gt;Now, a master&lt;/h3&gt;
-
-&lt;p&gt;A kubernetes master, would typically run API Server, Scheduler, Controller Manager,
-and etcd. You can certainly put run them in a HA mode by running more than one
-copy of them. Etcd data will be the data, you would have to take backups
-(to take backup of k8s side of your cluster, you would need different strategy for
-your application data backup)&lt;/p&gt;
-
-&lt;p&gt;You typically would run etcd2 as a service outside of kubernetes. And start API Server,
-scheduler, controller manager on master nodes using kubelet. All of these components
-ship in a single binary called &lt;em&gt;hyperkube&lt;/em&gt;, and I use the &lt;a href=&#34;https://quay.io/repository/coreos/hyperkube?tab=tags&#34;&gt;one&lt;/a&gt;
-from CoreOS (all my nodes are CoreOS too)&lt;/p&gt;
-
-&lt;p&gt;You can also run kubelet as a binary directly without using container by downloading
-it from &lt;a href=&#34;https://storage.googleapis.com/kubernetes-release/release/v1.3.8/bin/linux/amd64/kubelet&#34;&gt;https://storage.googleapis.com/kubernetes-release/release/v1.3.8/bin/linux/amd64/kubelet&lt;/a&gt;.
-This is not the preferred way, and binaries from this location can go away anytime.&lt;/p&gt;
-
-&lt;h3 id=&#34;and-the-node&#34;&gt;And, the node&lt;/h3&gt;
-
-&lt;p&gt;On the k8s nodes (most likely more than one), you would run just kubelet and kube-proxy.
-Kubelet on worker node will register with the API server. Controller Manager will
-start to manage the node, scheduler will start scheduling pods onto the nodes, and
-kube-proxy will set up load balancing as needed (iptables is default way).&lt;/p&gt;
-
-&lt;p&gt;You can check out the architecture from design documents of kubernetes &lt;a href=&#34;https://github.com/kubernetes/kubernetes/blob/master/docs/design/architecture.md&#34;&gt;here&lt;/a&gt;.
-Just remember to checkout the latest version.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -82,56 +35,7 @@ Just remember to checkout the latest version.&lt;/p&gt;</description>
 You can get download it from &lt;a href=&#34;https://github.com/kubernetes/minikube/releases&#34;&gt;here&lt;/a&gt; and get yourself a kubernetes node
 by doing just &lt;code&gt;minikube start&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Of course, you need to have &lt;a href=&#34;https://www.virtualbox.org/wiki/Downloads&#34;&gt;Virtualbox&lt;/a&gt; installed on your host machine.&lt;/p&gt;
-
-&lt;p&gt;Once you get minikube binary, some immediate checks you can do&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  $ minikube start
-  Starting local Kubernetes cluster...
-  Kubectl is now configured to use the cluster.
-
-  $ minikube status
-  minikubeVM: Running
-  localkube: Running
-
-  $ minikube ip
-  192.168.99.104
-
-  $ minikube dashboard
-  Opening kubernetes dashboard in default browser...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;However, it installs boot2docker based docker host on your Virtualbox. If you prefer CoreOS like me, you can install it by running
-&lt;code&gt;minikube start --iso-url=https://github.com/coreos/minikube-iso/releases/download/v0.0.4/minikube-v0.0.4.iso&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;You can also ssh into your minikube VM by running &lt;code&gt;minikube ssh&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;minikube&lt;/code&gt; also lets you configure your docker environment easily so that you can connect to minikube&amp;rsquo;s docker daemon directly from your
-host machine.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  $ minikube docker-env
-  export DOCKER_TLS_VERIFY=&amp;quot;1&amp;quot;
-  export DOCKER_HOST=&amp;quot;tcp://192.168.99.104:2376&amp;quot;
-  export DOCKER_CERT_PATH=&amp;quot;/Users/karteek/.minikube/certs&amp;quot;
-  export DOCKER_API_VERSION=&amp;quot;1.23&amp;quot;
-  # Run this command to configure your shell:
-  # eval $(minikube docker-env)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And it configures &lt;code&gt;kubectl&lt;/code&gt; automatically for you. So, you can start playing around with your kubernetes node immediately with in matter of minutes.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  $ kubectl get nodes
-  NAME       STATUS    AGE
-  minikube   Ready     3d
-
-  $ kubectl cluster-info
-  Kubernetes master is running at https://192.168.99.104:8443
-  kubernetes-dashboard is running at https://192.168.99.104:8443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard
-
-  To further debug and diagnose cluster problems, use &#39;kubectl cluster-info dump&#39;.
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -142,96 +46,7 @@ host machine.&lt;/p&gt;
       <guid>http://karteek.net/posts/k8s/</guid>
       <description>&lt;p&gt;Been long time that I wrote anything remotely useful for others. Thought to change that by writing about a tool that I have been using a lot lately - &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt;, an awesome container orchestration tool&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;I have been using kubernetes for work from past few months on AWS, I&amp;rsquo;ve learnt few things about kubernetes the hardway.
-One of the most common complaints I keep reading about kubernetes is that documentation is bad. I would agree to that half-heartedly as
-documentation is not bad, but more or less not greatly organized. There is a lot of information available over their
-&lt;a href=&#34;https://github.com/kubernetes/kubernetes/tree/master/docs&#34;&gt;github account&lt;/a&gt;, just waiting to be found and understood.
-This is a small attempt to simplify connect few dots. This is by no-means a guide or tutorial or
-a walk through. This is purely about my journey in getting it to work the way I wanted.&lt;/p&gt;
-
-&lt;p&gt;Before you continue and waste more of your time reading this, you should certainly read &lt;a href=&#34;http://kubernetes.io/docs/whatisk8s/&#34;&gt;this&lt;/a&gt; if you dont know what is kubernetes. Also, this post doesn&amp;rsquo;t cover any code or configurations, just hints and links to guides/tools that helped me.&lt;/p&gt;
-
-&lt;h2 id=&#34;expectations&#34;&gt;Expectations&lt;/h2&gt;
-
-&lt;p&gt;My expectations on k8s (kubernetes) deployment/cluster that I wanted to do were simple&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;High available components&lt;/li&gt;
-&lt;li&gt;Stable to use for production&lt;/li&gt;
-&lt;li&gt;Self healing if something happens&lt;/li&gt;
-&lt;li&gt;Easy to deploy cluster, repeatedly&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Before going into details, these are the types of nodes you would have in your k8s cluster&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Master is a server that manages the cluster. There can be more than one of these machines.&lt;/li&gt;
-&lt;li&gt;Minion is a server that runs your containers. There will always be more more than one or more of these machines.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;These are the roles of servers in our kubernetes cluster. A node can play both roles if needed.
-Typically in a dev environment, you can have one server playing both the roles (a.k.a 1-node k8s cluster).
-And in a production environment, you would want multiple servers playing these roles.&lt;/p&gt;
-
-&lt;h2 id=&#34;journey&#34;&gt;Journey&lt;/h2&gt;
-
-&lt;h3 id=&#34;ha&#34;&gt;HA&lt;/h3&gt;
-
-&lt;p&gt;As my target was to deploy this on AWS, the obvious place of starting my journey was &lt;a href=&#34;http://kubernetes.io/docs/getting-started-guides/aws/&#34;&gt;AWS getting started guide&lt;/a&gt; by kubernetes team. And it took less than 2 minutes to
-realize that guide is not very helpful to me and doesn&amp;rsquo;t meet my #1 requirement of (Highly available components)&lt;/p&gt;
-
-&lt;p&gt;It shows on how to install kubernetes on a single AWS availability zone, with 1 master and &lt;code&gt;n&lt;/code&gt; minions.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;When master goes down, cluster cannot be controlled&lt;/li&gt;
-&lt;li&gt;When AZ goes down, entire cluster is down.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And then I went to go read their &lt;a href=&#34;http://kubernetes.io/docs/admin/high-availability/&#34;&gt;guide on creating High-Availability Cluster&lt;/a&gt;.
-I realized that a good start would be to create a &lt;code&gt;3&lt;/code&gt;-master and &lt;code&gt;n&lt;/code&gt;-minion cluster&lt;/p&gt;
-
-&lt;h3 id=&#34;stability&#34;&gt;Stability&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;Stability&lt;/code&gt; is something I enjoyed from kubernetes without putting any effort. It just worked out of the box. Kudos to Kubernetes team.&lt;/p&gt;
-
-&lt;h3 id=&#34;self-healing&#34;&gt;Self-healing&lt;/h3&gt;
-
-&lt;p&gt;I wanted my cluster to heal itself if one of the minion goes down, or even when a master goes down. I achieved this easily using AWS Auto Scaling groups. My process was something like this&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Create an ASG for masters, put them behind an internal ELB (load balancer)&lt;/li&gt;
-&lt;li&gt;Create an ASG for minions, make them talk to ELB of masters&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Now, when a node goes down, AWS auto scaling group will automatically replace it. But, for this to work, the new node that is being added
-by Autoscaling group should come with configuration when it boots. I got this idea from a tool called &lt;a href=&#34;https://github.com/coreos/coreos-kubernetes/tree/master/multi-node/aws&#34;&gt;kube-aws&lt;/a&gt; from CoreOS team. I managed to do pre-configuration of this part by using &lt;a href=&#34;https://cloudinit.readthedocs.io/en/latest/&#34;&gt;cloud-init&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;easy-to-deploy-repeatedly&#34;&gt;Easy to deploy, repeatedly&lt;/h3&gt;
-
-&lt;p&gt;There is a tool which I like for managing my infrastructure components. It&amp;rsquo;s a very nice tool which helps you deal with your infrastructure
-as if it&amp;rsquo;s code - &lt;a href=&#34;https://www.terraform.io/&#34;&gt;Terraform&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Now that I already know what I need to create, Using terraform, I simply created&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Different Launch Configurations for master ASG and minion ASG&lt;/li&gt;
-&lt;li&gt;Internal Master ELB&lt;/li&gt;
-&lt;li&gt;Cloud Init config for masters&lt;/li&gt;
-&lt;li&gt;Cloud Init config for minions, pointing towards internal master ELB&lt;/li&gt;
-&lt;li&gt;LC for masters using master&amp;rsquo;s cloud init, and LC for minions using their cloud init&lt;/li&gt;
-&lt;li&gt;ASG using appropriate LCs&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;End result was a k8s cluster spanning across three AZs with multiple masters, multiple minions.&lt;/p&gt;
-
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Even though, I managed to meet my requirements fairly easily, thanks to the vast kubernetes community, and articles/tools they wrote.
-Kubernetes can look daunting when you see their documentation, but its easy to setup and lovely to use once you understand components of it.&lt;/p&gt;
-
-&lt;p&gt;You should certainly read this &lt;a href=&#34;https://github.com/kelseyhightower/kubernetes-the-hard-way&#34;&gt;super useful tutorial&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/kelseyhightower&#34;&gt;@kelseyhightower&lt;/a&gt;., and go through these HN threads - &lt;a href=&#34;https://news.ycombinator.com/item?id=12022215&#34;&gt;1&lt;/a&gt;, &lt;a href=&#34;https://news.ycombinator.com/item?id=12323187&#34;&gt;2&lt;/a&gt; related to kubernetes.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

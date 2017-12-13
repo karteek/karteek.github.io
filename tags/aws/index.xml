@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Karteek dot Net</title>
-    <link>http://karteek.net/tags/aws/index.xml</link>
-    <description>Recent content on Karteek dot Net</description>
+    <title>Aws on Karteek dot Net</title>
+    <link>http://karteek.net/tags/aws/</link>
+    <description>Recent content in Aws on Karteek dot Net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://karteek.net/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Sep 2016 00:58:27 -0700</lastBuildDate>
+    
+	<atom:link href="http://karteek.net/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>k8s on AWS</title>
@@ -16,96 +19,7 @@
       <guid>http://karteek.net/posts/k8s/</guid>
       <description>&lt;p&gt;Been long time that I wrote anything remotely useful for others. Thought to change that by writing about a tool that I have been using a lot lately - &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt;, an awesome container orchestration tool&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;I have been using kubernetes for work from past few months on AWS, I&amp;rsquo;ve learnt few things about kubernetes the hardway.
-One of the most common complaints I keep reading about kubernetes is that documentation is bad. I would agree to that half-heartedly as
-documentation is not bad, but more or less not greatly organized. There is a lot of information available over their
-&lt;a href=&#34;https://github.com/kubernetes/kubernetes/tree/master/docs&#34;&gt;github account&lt;/a&gt;, just waiting to be found and understood.
-This is a small attempt to simplify connect few dots. This is by no-means a guide or tutorial or
-a walk through. This is purely about my journey in getting it to work the way I wanted.&lt;/p&gt;
-
-&lt;p&gt;Before you continue and waste more of your time reading this, you should certainly read &lt;a href=&#34;http://kubernetes.io/docs/whatisk8s/&#34;&gt;this&lt;/a&gt; if you dont know what is kubernetes. Also, this post doesn&amp;rsquo;t cover any code or configurations, just hints and links to guides/tools that helped me.&lt;/p&gt;
-
-&lt;h2 id=&#34;expectations&#34;&gt;Expectations&lt;/h2&gt;
-
-&lt;p&gt;My expectations on k8s (kubernetes) deployment/cluster that I wanted to do were simple&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;High available components&lt;/li&gt;
-&lt;li&gt;Stable to use for production&lt;/li&gt;
-&lt;li&gt;Self healing if something happens&lt;/li&gt;
-&lt;li&gt;Easy to deploy cluster, repeatedly&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Before going into details, these are the types of nodes you would have in your k8s cluster&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Master is a server that manages the cluster. There can be more than one of these machines.&lt;/li&gt;
-&lt;li&gt;Minion is a server that runs your containers. There will always be more more than one or more of these machines.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;These are the roles of servers in our kubernetes cluster. A node can play both roles if needed.
-Typically in a dev environment, you can have one server playing both the roles (a.k.a 1-node k8s cluster).
-And in a production environment, you would want multiple servers playing these roles.&lt;/p&gt;
-
-&lt;h2 id=&#34;journey&#34;&gt;Journey&lt;/h2&gt;
-
-&lt;h3 id=&#34;ha&#34;&gt;HA&lt;/h3&gt;
-
-&lt;p&gt;As my target was to deploy this on AWS, the obvious place of starting my journey was &lt;a href=&#34;http://kubernetes.io/docs/getting-started-guides/aws/&#34;&gt;AWS getting started guide&lt;/a&gt; by kubernetes team. And it took less than 2 minutes to
-realize that guide is not very helpful to me and doesn&amp;rsquo;t meet my #1 requirement of (Highly available components)&lt;/p&gt;
-
-&lt;p&gt;It shows on how to install kubernetes on a single AWS availability zone, with 1 master and &lt;code&gt;n&lt;/code&gt; minions.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;When master goes down, cluster cannot be controlled&lt;/li&gt;
-&lt;li&gt;When AZ goes down, entire cluster is down.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And then I went to go read their &lt;a href=&#34;http://kubernetes.io/docs/admin/high-availability/&#34;&gt;guide on creating High-Availability Cluster&lt;/a&gt;.
-I realized that a good start would be to create a &lt;code&gt;3&lt;/code&gt;-master and &lt;code&gt;n&lt;/code&gt;-minion cluster&lt;/p&gt;
-
-&lt;h3 id=&#34;stability&#34;&gt;Stability&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;Stability&lt;/code&gt; is something I enjoyed from kubernetes without putting any effort. It just worked out of the box. Kudos to Kubernetes team.&lt;/p&gt;
-
-&lt;h3 id=&#34;self-healing&#34;&gt;Self-healing&lt;/h3&gt;
-
-&lt;p&gt;I wanted my cluster to heal itself if one of the minion goes down, or even when a master goes down. I achieved this easily using AWS Auto Scaling groups. My process was something like this&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Create an ASG for masters, put them behind an internal ELB (load balancer)&lt;/li&gt;
-&lt;li&gt;Create an ASG for minions, make them talk to ELB of masters&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Now, when a node goes down, AWS auto scaling group will automatically replace it. But, for this to work, the new node that is being added
-by Autoscaling group should come with configuration when it boots. I got this idea from a tool called &lt;a href=&#34;https://github.com/coreos/coreos-kubernetes/tree/master/multi-node/aws&#34;&gt;kube-aws&lt;/a&gt; from CoreOS team. I managed to do pre-configuration of this part by using &lt;a href=&#34;https://cloudinit.readthedocs.io/en/latest/&#34;&gt;cloud-init&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;easy-to-deploy-repeatedly&#34;&gt;Easy to deploy, repeatedly&lt;/h3&gt;
-
-&lt;p&gt;There is a tool which I like for managing my infrastructure components. It&amp;rsquo;s a very nice tool which helps you deal with your infrastructure
-as if it&amp;rsquo;s code - &lt;a href=&#34;https://www.terraform.io/&#34;&gt;Terraform&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Now that I already know what I need to create, Using terraform, I simply created&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Different Launch Configurations for master ASG and minion ASG&lt;/li&gt;
-&lt;li&gt;Internal Master ELB&lt;/li&gt;
-&lt;li&gt;Cloud Init config for masters&lt;/li&gt;
-&lt;li&gt;Cloud Init config for minions, pointing towards internal master ELB&lt;/li&gt;
-&lt;li&gt;LC for masters using master&amp;rsquo;s cloud init, and LC for minions using their cloud init&lt;/li&gt;
-&lt;li&gt;ASG using appropriate LCs&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;End result was a k8s cluster spanning across three AZs with multiple masters, multiple minions.&lt;/p&gt;
-
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Even though, I managed to meet my requirements fairly easily, thanks to the vast kubernetes community, and articles/tools they wrote.
-Kubernetes can look daunting when you see their documentation, but its easy to setup and lovely to use once you understand components of it.&lt;/p&gt;
-
-&lt;p&gt;You should certainly read this &lt;a href=&#34;https://github.com/kelseyhightower/kubernetes-the-hard-way&#34;&gt;super useful tutorial&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/kelseyhightower&#34;&gt;@kelseyhightower&lt;/a&gt;., and go through these HN threads - &lt;a href=&#34;https://news.ycombinator.com/item?id=12022215&#34;&gt;1&lt;/a&gt;, &lt;a href=&#34;https://news.ycombinator.com/item?id=12323187&#34;&gt;2&lt;/a&gt; related to kubernetes.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
