@@ -24,7 +24,7 @@
 
 /** Base ********************************************************************/
 body {
-    font-family: "Noto Sans", "Helvetica Neue", "Helvetica", sans-serif;
+    font-family: "Open Sans", "Helvetica Neue", "Helvetica", sans-serif;
     color: #484644;
 }
 
@@ -40,6 +40,17 @@ a:visited {
 h1,h2,h3,h4,h5,h6 {
     color: #202020;
     font-weight: lighter;
+}
+
+pre {
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 32px;
+}
+
+pre code {
+    display: inline-block;
 }
 
 /** Screen furniture ********************************************************/
@@ -91,7 +102,6 @@ h1,h2,h3,h4,h5,h6 {
     display: none;
 }
 
-
 /** Article *****************************************************************/
 .li-article {
     margin-bottom: 32px;
@@ -100,13 +110,6 @@ h1,h2,h3,h4,h5,h6 {
 .li-article img {
     height: auto;
     max-width: 100%;
-}
-
-.li-article pre {
-    background-color: #fafafa;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 16px;
 }
 
 ul.li-article-list {
@@ -432,8 +435,4 @@ or wrap each row of columns in a <div class="row"> */
     visibility: hidden;
     width: 0;
     height: 0;
-}
-
-p code {
-    padding: 0.2em;
 }
