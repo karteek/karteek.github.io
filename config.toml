@@ -1,4 +1,4 @@
-baseurl = "http://karteek.net"
+baseurl = "https://karteek.net"
 languageCode = "en-us"
 title = "Karteek dot Net"
 theme = "liquorice"
