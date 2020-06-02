@@ -1,25 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Aws on Karteek dot Net</title>
-    <link>http://karteek.net/tags/aws/</link>
-    <description>Recent content in Aws on Karteek dot Net</description>
+    <title>aws on Karteek dot Net</title>
+    <link>https://karteek.net/tags/aws/</link>
+    <description>Recent content in aws on Karteek dot Net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 21 Sep 2016 00:58:27 -0700</lastBuildDate>
     
-	<atom:link href="http://karteek.net/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://karteek.net/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>k8s on AWS</title>
-      <link>http://karteek.net/posts/k8s/</link>
+      <link>https://karteek.net/posts/k8s/</link>
       <pubDate>Wed, 21 Sep 2016 00:58:27 -0700</pubDate>
       
-      <guid>http://karteek.net/posts/k8s/</guid>
-      <description>&lt;p&gt;Been long time that I wrote anything remotely useful for others. Thought to change that by writing about a tool that I have been using a lot lately - &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt;, an awesome container orchestration tool&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>https://karteek.net/posts/k8s/</guid>
+      <description>&lt;p&gt;Been long time that I wrote anything remotely useful for others. Thought to change that by writing about a tool that I have been using a lot lately - &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt;, an awesome container orchestration tool&lt;/p&gt;</description>
     </item>
     
   </channel>

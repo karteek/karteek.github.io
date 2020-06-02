@@ -1,27 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Echo on Karteek dot Net</title>
-    <link>http://karteek.net/tags/echo/</link>
-    <description>Recent content in Echo on Karteek dot Net</description>
+    <title>echo on Karteek dot Net</title>
+    <link>https://karteek.net/tags/echo/</link>
+    <description>Recent content in echo on Karteek dot Net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 29 Oct 2016 02:31:59 -0700</lastBuildDate>
     
-	<atom:link href="http://karteek.net/tags/echo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://karteek.net/tags/echo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A simple echo service</title>
-      <link>http://karteek.net/posts/simple-echo-server/</link>
+      <link>https://karteek.net/posts/simple-echo-server/</link>
       <pubDate>Sat, 29 Oct 2016 02:31:59 -0700</pubDate>
       
-      <guid>http://karteek.net/posts/simple-echo-server/</guid>
+      <guid>https://karteek.net/posts/simple-echo-server/</guid>
       <description>&lt;p&gt;For some testing, I needed a simple HTTP server which would print headers that my client is
 sending (and some headers added by my proxy). I had written a simple HTTP server in python which did exactly what
-I wanted, and added it to python container from dockerhub.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+I wanted, and added it to python container from dockerhub.&lt;/p&gt;</description>
     </item>
     
   </channel>

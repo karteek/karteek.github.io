@@ -1,90 +1,78 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Karteek dot Net</title>
-    <link>http://karteek.net/posts/</link>
+    <link>https://karteek.net/posts/</link>
     <description>Recent content in Posts on Karteek dot Net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 29 Oct 2016 02:31:59 -0700</lastBuildDate>
     
-	<atom:link href="http://karteek.net/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://karteek.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A simple echo service</title>
-      <link>http://karteek.net/posts/simple-echo-server/</link>
+      <link>https://karteek.net/posts/simple-echo-server/</link>
       <pubDate>Sat, 29 Oct 2016 02:31:59 -0700</pubDate>
       
-      <guid>http://karteek.net/posts/simple-echo-server/</guid>
+      <guid>https://karteek.net/posts/simple-echo-server/</guid>
       <description>&lt;p&gt;For some testing, I needed a simple HTTP server which would print headers that my client is
 sending (and some headers added by my proxy). I had written a simple HTTP server in python which did exactly what
-I wanted, and added it to python container from dockerhub.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+I wanted, and added it to python container from dockerhub.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>wdns</title>
-      <link>http://karteek.net/posts/wdns/</link>
+      <link>https://karteek.net/posts/wdns/</link>
       <pubDate>Sun, 09 Oct 2016 01:20:22 -0700</pubDate>
       
-      <guid>http://karteek.net/posts/wdns/</guid>
+      <guid>https://karteek.net/posts/wdns/</guid>
       <description>&lt;p&gt;This is fun project for the weekend; a simple DNS relay server that can
 do wildcard DNS resolution  for IP Addresses. Like xip.io, but with a small change.
-This supports hyphens in addition to dots.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+This supports hyphens in addition to dots.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Kubernetes architecture</title>
-      <link>http://karteek.net/posts/kubernetes-architecture/</link>
+      <link>https://karteek.net/posts/kubernetes-architecture/</link>
       <pubDate>Tue, 04 Oct 2016 01:51:21 -0700</pubDate>
       
-      <guid>http://karteek.net/posts/kubernetes-architecture/</guid>
+      <guid>https://karteek.net/posts/kubernetes-architecture/</guid>
       <description>&lt;p&gt;Kubernetes is fairly simple to install and configure. All you would need is
 few VMs with docker (or rkt) installed. Once you understand the needed components
 to get the system read, orchestrating them to sit at right place can be done in
-many ways.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Kubernetes with minikube</title>
-      <link>http://karteek.net/posts/minikube/</link>
-      <pubDate>Wed, 21 Sep 2016 00:58:27 -0700</pubDate>
-      
-      <guid>http://karteek.net/posts/minikube/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/kubernetes/minikube&#34;&gt;Minikube&lt;/a&gt; is the easiest way to get yourself a dev friendly kubernetes setup.
-You can get download it from &lt;a href=&#34;https://github.com/kubernetes/minikube/releases&#34;&gt;here&lt;/a&gt; and get yourself a kubernetes node
-by doing just &lt;code&gt;minikube start&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+many ways.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>k8s on AWS</title>
-      <link>http://karteek.net/posts/k8s/</link>
+      <link>https://karteek.net/posts/k8s/</link>
       <pubDate>Wed, 21 Sep 2016 00:58:27 -0700</pubDate>
       
-      <guid>http://karteek.net/posts/k8s/</guid>
-      <description>&lt;p&gt;Been long time that I wrote anything remotely useful for others. Thought to change that by writing about a tool that I have been using a lot lately - &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt;, an awesome container orchestration tool&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>https://karteek.net/posts/k8s/</guid>
+      <description>&lt;p&gt;Been long time that I wrote anything remotely useful for others. Thought to change that by writing about a tool that I have been using a lot lately - &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt;, an awesome container orchestration tool&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes with minikube</title>
+      <link>https://karteek.net/posts/minikube/</link>
+      <pubDate>Wed, 21 Sep 2016 00:58:27 -0700</pubDate>
+      
+      <guid>https://karteek.net/posts/minikube/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/kubernetes/minikube&#34;&gt;Minikube&lt;/a&gt; is the easiest way to get yourself a dev friendly kubernetes setup.
+You can get download it from &lt;a href=&#34;https://github.com/kubernetes/minikube/releases&#34;&gt;here&lt;/a&gt; and get yourself a kubernetes node
+by doing just &lt;code&gt;minikube start&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>re init</title>
-      <link>http://karteek.net/posts/re-init/</link>
+      <link>https://karteek.net/posts/re-init/</link>
       <pubDate>Sun, 18 Sep 2016 00:41:09 -0700</pubDate>
       
-      <guid>http://karteek.net/posts/re-init/</guid>
+      <guid>https://karteek.net/posts/re-init/</guid>
       <description>&lt;p&gt;It has been a long time I wrote anything or tried something new here. My domain started to look like an abandoned city.
-So, I&amp;rsquo;m re-initing it now with something much simpler combination of &lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo&lt;/a&gt; and Github &lt;a href=&#34;https://pages.github.com/&#34;&gt;pages&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+So, I&amp;rsquo;m re-initing it now with something much simpler combination of &lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo&lt;/a&gt; and Github &lt;a href=&#34;https://pages.github.com/&#34;&gt;pages&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -7,9 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
         <meta name="description" content="Kubernetes on AWS" />
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,300,600" type='text/css'>
-        <link rel="stylesheet" href="http://karteek.net/libraries/normalize.3.0.1.css" />
-        <link rel="stylesheet" href="http://karteek.net/css/liquorice.css" />
-        <link rel="stylesheet" href="http://karteek.net/libraries/github-v2.min.css" />
+        <link rel="stylesheet" href="https://karteek.net/libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="https://karteek.net/css/liquorice.css" />
+        <link rel="stylesheet" href="https://karteek.net/libraries/github-v2.min.css" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-144-precomposed.png" sizes="144x144" />
         
@@ -22,7 +22,7 @@
         <div class="row">
             <div class="sixteen columns">
                 <div class="li-brand li-left">
-                <a href="http://karteek.net">Karteek dot Net</a></div>
+                <a href="https://karteek.net">Karteek dot Net</a></div>
                 <div class="li-menu li-right">
                     <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
                     <ul id="menu2" class="li-menu-items">
@@ -62,9 +62,9 @@
                             
                                 with tags
                                 
-                                    <a href="http://karteek.net/tags/aws">aws</a>
+                                    <a href="https://karteek.net/tags/aws">aws</a>
                                 
-                                    <a href="http://karteek.net/tags/kubernetes">kubernetes</a>
+                                    <a href="https://karteek.net/tags/kubernetes">kubernetes</a>
                                 
                             
                         </span>
@@ -73,80 +73,54 @@
                     </header>
                     <section>
                         <p>Been long time that I wrote anything remotely useful for others. Thought to change that by writing about a tool that I have been using a lot lately - <a href="http://kubernetes.io/">Kubernetes</a>, an awesome container orchestration tool</p>
-
-<p></p>
-
 <p>I have been using kubernetes for work from past few months on AWS, I&rsquo;ve learnt few things about kubernetes the hardway.
 One of the most common complaints I keep reading about kubernetes is that documentation is bad. I would agree to that half-heartedly as
 documentation is not bad, but more or less not greatly organized. There is a lot of information available over their
 <a href="https://github.com/kubernetes/kubernetes/tree/master/docs">github account</a>, just waiting to be found and understood.
 This is a small attempt to simplify connect few dots. This is by no-means a guide or tutorial or
 a walk through. This is purely about my journey in getting it to work the way I wanted.</p>
-
 <p>Before you continue and waste more of your time reading this, you should certainly read <a href="http://kubernetes.io/docs/whatisk8s/">this</a> if you dont know what is kubernetes. Also, this post doesn&rsquo;t cover any code or configurations, just hints and links to guides/tools that helped me.</p>
-
 <h2 id="expectations">Expectations</h2>
-
 <p>My expectations on k8s (kubernetes) deployment/cluster that I wanted to do were simple</p>
-
 <ol>
 <li>High available components</li>
 <li>Stable to use for production</li>
 <li>Self healing if something happens</li>
 <li>Easy to deploy cluster, repeatedly</li>
 </ol>
-
 <p>Before going into details, these are the types of nodes you would have in your k8s cluster</p>
-
 <ol>
 <li>Master is a server that manages the cluster. There can be more than one of these machines.</li>
 <li>Minion is a server that runs your containers. There will always be more more than one or more of these machines.</li>
 </ol>
-
 <p>These are the roles of servers in our kubernetes cluster. A node can play both roles if needed.
 Typically in a dev environment, you can have one server playing both the roles (a.k.a 1-node k8s cluster).
 And in a production environment, you would want multiple servers playing these roles.</p>
-
 <h2 id="journey">Journey</h2>
-
 <h3 id="ha">HA</h3>
-
 <p>As my target was to deploy this on AWS, the obvious place of starting my journey was <a href="http://kubernetes.io/docs/getting-started-guides/aws/">AWS getting started guide</a> by kubernetes team. And it took less than 2 minutes to
 realize that guide is not very helpful to me and doesn&rsquo;t meet my #1 requirement of (Highly available components)</p>
-
 <p>It shows on how to install kubernetes on a single AWS availability zone, with 1 master and <code>n</code> minions.</p>
-
 <ul>
 <li>When master goes down, cluster cannot be controlled</li>
 <li>When AZ goes down, entire cluster is down.</li>
 </ul>
-
 <p>And then I went to go read their <a href="http://kubernetes.io/docs/admin/high-availability/">guide on creating High-Availability Cluster</a>.
 I realized that a good start would be to create a <code>3</code>-master and <code>n</code>-minion cluster</p>
-
 <h3 id="stability">Stability</h3>
-
 <p><code>Stability</code> is something I enjoyed from kubernetes without putting any effort. It just worked out of the box. Kudos to Kubernetes team.</p>
-
 <h3 id="self-healing">Self-healing</h3>
-
 <p>I wanted my cluster to heal itself if one of the minion goes down, or even when a master goes down. I achieved this easily using AWS Auto Scaling groups. My process was something like this</p>
-
 <ol>
 <li>Create an ASG for masters, put them behind an internal ELB (load balancer)</li>
 <li>Create an ASG for minions, make them talk to ELB of masters</li>
 </ol>
-
 <p>Now, when a node goes down, AWS auto scaling group will automatically replace it. But, for this to work, the new node that is being added
 by Autoscaling group should come with configuration when it boots. I got this idea from a tool called <a href="https://github.com/coreos/coreos-kubernetes/tree/master/multi-node/aws">kube-aws</a> from CoreOS team. I managed to do pre-configuration of this part by using <a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a>.</p>
-
 <h3 id="easy-to-deploy-repeatedly">Easy to deploy, repeatedly</h3>
-
 <p>There is a tool which I like for managing my infrastructure components. It&rsquo;s a very nice tool which helps you deal with your infrastructure
 as if it&rsquo;s code - <a href="https://www.terraform.io/">Terraform</a></p>
-
 <p>Now that I already know what I need to create, Using terraform, I simply created</p>
-
 <ol>
 <li>Different Launch Configurations for master ASG and minion ASG</li>
 <li>Internal Master ELB</li>
@@ -155,14 +129,10 @@ as if it&rsquo;s code - <a href="https://www.terraform.io/">Terraform</a></p>
 <li>LC for masters using master&rsquo;s cloud init, and LC for minions using their cloud init</li>
 <li>ASG using appropriate LCs</li>
 </ol>
-
 <p>End result was a k8s cluster spanning across three AZs with multiple masters, multiple minions.</p>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>Even though, I managed to meet my requirements fairly easily, thanks to the vast kubernetes community, and articles/tools they wrote.
 Kubernetes can look daunting when you see their documentation, but its easy to setup and lovely to use once you understand components of it.</p>
-
 <p>You should certainly read this <a href="https://github.com/kelseyhightower/kubernetes-the-hard-way">super useful tutorial</a> by <a href="https://twitter.com/kelseyhightower">@kelseyhightower</a>., and go through these HN threads - <a href="https://news.ycombinator.com/item?id=12022215">1</a>, <a href="https://news.ycombinator.com/item?id=12323187">2</a> related to kubernetes.</p>
                     </section>
                 </article>
@@ -200,7 +170,7 @@ Kubernetes can look daunting when you see their documentation, but its easy to s
                 <div class="li-pagination-previous">
                     
                         Later article<br />
-                        <a href="http://karteek.net/posts/minikube/"> Kubernetes with minikube</a>
+                        <a href="https://karteek.net/posts/minikube/"> Kubernetes with minikube</a>
                     
                 </div>
             </div>
@@ -208,7 +178,7 @@ Kubernetes can look daunting when you see their documentation, but its easy to s
                 <div class="li-pagination-next">
                     
                         Older article<br />
-                        <a href="http://karteek.net/posts/re-init/"> re init</a>
+                        <a href="https://karteek.net/posts/kubernetes-architecture/"> Kubernetes architecture</a>
                     
                 </div>
             </div>

@@ -1,117 +1,104 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://karteek.net/posts/simple-echo-server/</loc>
+    <loc>https://karteek.net/posts/simple-echo-server/</loc>
     <lastmod>2016-10-29T02:31:59-07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://karteek.net/posts/wdns/</loc>
+    <loc>https://karteek.net/tags/container/</loc>
+    <lastmod>2016-10-29T02:31:59-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://karteek.net/tags/echo/</loc>
+    <lastmod>2016-10-29T02:31:59-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://karteek.net/</loc>
+    <lastmod>2016-10-29T02:31:59-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://karteek.net/posts/</loc>
+    <lastmod>2016-10-29T02:31:59-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://karteek.net/tags/</loc>
+    <lastmod>2016-10-29T02:31:59-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://karteek.net/tags/golang/</loc>
     <lastmod>2016-10-09T01:20:22-07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://karteek.net/posts/kubernetes-architecture/</loc>
+    <loc>https://karteek.net/tags/wdns/</loc>
+    <lastmod>2016-10-09T01:20:22-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://karteek.net/posts/wdns/</loc>
+    <lastmod>2016-10-09T01:20:22-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://karteek.net/tags/kubernetes/</loc>
     <lastmod>2016-10-04T01:51:21-07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://karteek.net/posts/minikube/</loc>
+    <loc>https://karteek.net/posts/kubernetes-architecture/</loc>
+    <lastmod>2016-10-04T01:51:21-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://karteek.net/tags/aws/</loc>
     <lastmod>2016-09-21T00:58:27-07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://karteek.net/posts/k8s/</loc>
+    <loc>https://karteek.net/posts/k8s/</loc>
     <lastmod>2016-09-21T00:58:27-07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://karteek.net/posts/re-init/</loc>
+    <loc>https://karteek.net/posts/minikube/</loc>
+    <lastmod>2016-09-21T00:58:27-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://karteek.net/tags/minikube/</loc>
+    <lastmod>2016-09-21T00:58:27-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://karteek.net/tags/github/</loc>
     <lastmod>2016-09-18T00:41:09-07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://karteek.net/about/</loc>
+    <loc>https://karteek.net/tags/hugo/</loc>
+    <lastmod>2016-09-18T00:41:09-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://karteek.net/posts/re-init/</loc>
+    <lastmod>2016-09-18T00:41:09-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://karteek.net/about/</loc>
     <lastmod>2016-09-01T01:54:58-07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://karteek.net/tags/aws/</loc>
-    <lastmod>2016-09-21T00:58:27-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://karteek.net/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://karteek.net/tags/container/</loc>
-    <lastmod>2016-10-29T02:31:59-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://karteek.net/tags/echo/</loc>
-    <lastmod>2016-10-29T02:31:59-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://karteek.net/tags/github/</loc>
-    <lastmod>2016-09-18T00:41:09-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://karteek.net/tags/golang/</loc>
-    <lastmod>2016-10-09T01:20:22-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://karteek.net/tags/hugo/</loc>
-    <lastmod>2016-09-18T00:41:09-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://karteek.net/</loc>
-    <lastmod>2016-10-29T02:31:59-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://karteek.net/tags/kubernetes/</loc>
-    <lastmod>2016-10-04T01:51:21-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://karteek.net/tags/minikube/</loc>
-    <lastmod>2016-09-21T00:58:27-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://karteek.net/posts/</loc>
-    <lastmod>2016-10-29T02:31:59-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://karteek.net/tags/</loc>
-    <lastmod>2016-09-21T00:58:27-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://karteek.net/tags/wdns/</loc>
-    <lastmod>2016-10-09T01:20:22-07:00</lastmod>
-    <priority>0</priority>
+    <loc>https://karteek.net/categories/</loc>
   </url>
   
 </urlset>

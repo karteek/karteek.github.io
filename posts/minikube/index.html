@@ -7,9 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
         <meta name="description" content="Kubernetes with minikube" />
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,300,600" type='text/css'>
-        <link rel="stylesheet" href="http://karteek.net/libraries/normalize.3.0.1.css" />
-        <link rel="stylesheet" href="http://karteek.net/css/liquorice.css" />
-        <link rel="stylesheet" href="http://karteek.net/libraries/github-v2.min.css" />
+        <link rel="stylesheet" href="https://karteek.net/libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="https://karteek.net/css/liquorice.css" />
+        <link rel="stylesheet" href="https://karteek.net/libraries/github-v2.min.css" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-144-precomposed.png" sizes="144x144" />
         
@@ -22,7 +22,7 @@
         <div class="row">
             <div class="sixteen columns">
                 <div class="li-brand li-left">
-                <a href="http://karteek.net">Karteek dot Net</a></div>
+                <a href="https://karteek.net">Karteek dot Net</a></div>
                 <div class="li-menu li-right">
                     <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
                     <ul id="menu2" class="li-menu-items">
@@ -62,9 +62,9 @@
                             
                                 with tags
                                 
-                                    <a href="http://karteek.net/tags/kubernetes">kubernetes</a>
+                                    <a href="https://karteek.net/tags/kubernetes">kubernetes</a>
                                 
-                                    <a href="http://karteek.net/tags/minikube">minikube</a>
+                                    <a href="https://karteek.net/tags/minikube">minikube</a>
                                 
                             
                         </span>
@@ -75,13 +75,8 @@
                         <p><a href="https://github.com/kubernetes/minikube">Minikube</a> is the easiest way to get yourself a dev friendly kubernetes setup.
 You can get download it from <a href="https://github.com/kubernetes/minikube/releases">here</a> and get yourself a kubernetes node
 by doing just <code>minikube start</code></p>
-
-<p></p>
-
 <p>Of course, you need to have <a href="https://www.virtualbox.org/wiki/Downloads">Virtualbox</a> installed on your host machine.</p>
-
 <p>Once you get minikube binary, some immediate checks you can do</p>
-
 <pre><code>  $ minikube start
   Starting local Kubernetes cluster...
   Kubectl is now configured to use the cluster.
@@ -95,16 +90,11 @@ by doing just <code>minikube start</code></p>
 
   $ minikube dashboard
   Opening kubernetes dashboard in default browser...
-</code></pre>
-
-<p>However, it installs boot2docker based docker host on your Virtualbox. If you prefer CoreOS like me, you can install it by running
+</code></pre><p>However, it installs boot2docker based docker host on your Virtualbox. If you prefer CoreOS like me, you can install it by running
 <code>minikube start --iso-url=https://github.com/coreos/minikube-iso/releases/download/v0.0.4/minikube-v0.0.4.iso</code></p>
-
 <p>You can also ssh into your minikube VM by running <code>minikube ssh</code></p>
-
 <p><code>minikube</code> also lets you configure your docker environment easily so that you can connect to minikube&rsquo;s docker daemon directly from your
 host machine.</p>
-
 <pre><code>  $ minikube docker-env
   export DOCKER_TLS_VERIFY=&quot;1&quot;
   export DOCKER_HOST=&quot;tcp://192.168.99.104:2376&quot;
@@ -112,10 +102,7 @@ host machine.</p>
   export DOCKER_API_VERSION=&quot;1.23&quot;
   # Run this command to configure your shell:
   # eval $(minikube docker-env)
-</code></pre>
-
-<p>And it configures <code>kubectl</code> automatically for you. So, you can start playing around with your kubernetes node immediately with in matter of minutes.</p>
-
+</code></pre><p>And it configures <code>kubectl</code> automatically for you. So, you can start playing around with your kubernetes node immediately with in matter of minutes.</p>
 <pre><code>  $ kubectl get nodes
   NAME       STATUS    AGE
   minikube   Ready     3d
@@ -162,7 +149,7 @@ host machine.</p>
                 <div class="li-pagination-previous">
                     
                         Later article<br />
-                        <a href="http://karteek.net/posts/kubernetes-architecture/"> Kubernetes architecture</a>
+                        <a href="https://karteek.net/posts/re-init/"> re init</a>
                     
                 </div>
             </div>
@@ -170,7 +157,7 @@ host machine.</p>
                 <div class="li-pagination-next">
                     
                         Older article<br />
-                        <a href="http://karteek.net/posts/k8s/"> k8s on AWS</a>
+                        <a href="https://karteek.net/posts/k8s/"> k8s on AWS</a>
                     
                 </div>
             </div>
